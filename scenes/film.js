@@ -1,0 +1,91 @@
+/* ─────────────────────────────────────────────────────────────
+   KELİMELERİN ATÖLYESİ — BTY.5.2.4 (senaryo)
+   Her vuruş bir altyazıdır: tr, en, note (öğretmen için seslendirme).
+   Değiştirdikten sonra: npm run build
+   ───────────────────────────────────────────────────────────── */
+BF.defineFilm({
+  meta: {
+    slug: 'kelimelerin-atolyesi', title: 'Kelimelerin Atölyesi', titleEn: 'The Word Workshop', code: 'BTY.5.2.4',
+    outcomeEn: 'Making use of word processing programs',
+    summary: 'Kalemle ve daktiloyla yazmak, kelime işlemci programıyla yazmakla karşılaştırılarak kelime işlemcinin temel özellikleri tanıtılır: silip düzeltmek, biçimlendirmek, yazım denetimi, kaydedip paylaşmak. İşe göre masaüstü, çevrim içi ya da yapay zekâ destekli yazı aracı seçilir. Bir belgede metin yazılır, başlık biçimlendirilir, yazım hatası düzeltilir, resim eklenir ve belge kaydedilir. Son olarak araçlar kullanım alanı, verimlilik ve etik açısından değerlendirilir.',
+    summaryEn: 'Handwriting and typewriters are compared with a word processor; desktop, online and AI-assisted tools are matched to tasks; Karo types, formats, spell-checks, adds an image and saves; and tool use is judged for efficiency and honesty.',
+    blurb: 'Kelime işlemcinin özellikleri, uygun aracı seçmek, temel biçimlendirme ve verimli, dürüst kullanım.',
+    posterAlt: 'Başlık ve Karo; çevresinde belge, kalem, daktilo ve yapay zekâ karoları',
+  },
+  scenes: [
+    { type: 'intro', icons: [{ icon: 'wordApp', c: 'kobalt' }, { icon: 'pen', c: 'mercan' }, { icon: 'typewriter', c: 'safran' }, { icon: 'doc', c: 'turkuaz' }, { icon: 'ai', c: 'mor' }, { icon: 'mail', c: 'zumrut' }, { icon: 'printer', c: 'kobalt' }, { icon: 'cloud', c: 'turkuaz' }],
+      beats: [
+        { tr: 'Dedem gençken mektuplarını elle yazarmış', en: 'When Grandpa was young, he wrote letters by hand',
+          note: 'Karo\'nun dedesi gençken mektuplarını kalemle, bazen de daktiloyla yazarmış. Bir hata yapınca sayfayı baştan yazarmış!' },
+        { tr: 'Biz bugün nasıl yazıyoruz?', en: 'How do we write today?',
+          note: 'Bugün ödevlerimizi, davetiyelerimizi ve dilekçelerimizi çoğu zaman bilgisayarda yazıyoruz. Nasıl mı?' },
+      ] },
+    { type: 'compare', name: 'Kelime işlemci', en: 'Word processor', desc: 'Kalem ve daktilo ile kelime işlemci programı karşılaştırılır.', out: 'a',
+      left: 'ESKİDEN', right: 'KELİME İŞLEMCİ', leftC: 'safran', rightC: 'kobalt', sameLabel: 'aynı iş', diffLabel: 'kolaylık',
+      beats: [
+        { tr: 'Kelime işlemciyle hatayı silip düzeltiriz', en: 'In a word processor we delete and fix mistakes', extra: 1,
+          note: 'Kalemle yazarken bir hata yaparsak sayfayı baştan yazarız. Kelime işlemci programında ise hatayı silip hemen düzeltiriz.',
+          a: { icon: 'pen', name: 'Kalemle mektup', tag: 'saatler', c: 'safran' }, b: { icon: 'wordApp', name: 'Kelime işlemci', tag: 'dakikalar', c: 'kobalt' }, same: 'aynı mektup', diff: ['silip düzeltme', 'yazım denetimi'] },
+        { tr: 'Biçimlendirir, kaydeder, paylaşırız', en: 'We format, save and share',
+          note: 'Yazının tipini, boyutunu ve rengini değiştirebilir, resim ve tablo ekleyebiliriz. Belgeyi kaydeder, yazdırır ya da paylaşırız.',
+          a: { icon: 'typewriter', name: 'Daktilo', tag: 'tek yazı tipi', c: 'safran' }, b: { icon: 'doc', name: 'Dijital belge', tag: '.docx', c: 'kobalt' }, same: 'aynı belge', diff: ['yazı tipi, renk', 'resim, tablo', 'kaydet, paylaş'] },
+      ] },
+    { type: 'sort', name: 'Uygun araç', en: 'The right tool', desc: 'İşe göre masaüstü, çevrim içi ya da yapay zekâ destekli yazı aracı seçilir.', out: 'b',
+      bins: [{ label: 'MASAÜSTÜ', c: 'kobalt' }, { label: 'ÇEVRİM İÇİ', c: 'turkuaz' }, { label: 'YAPAY ZEKÂ', c: 'mor' }],
+      items: [
+        { icon: 'laptop', name: 'İnternetsiz ödev yazmak', bin: 0, beat: 1 },
+        { icon: 'printer', name: 'Dilekçe yazıp yazdırmak', bin: 0, beat: 1 },
+        { icon: 'group', name: 'Grupça aynı belgede çalışmak', bin: 1, beat: 2 },
+        { icon: 'cloud', name: 'Her cihazdan belgeye ulaşmak', bin: 1, beat: 2 },
+        { icon: 'lightbulb', name: 'Fikir almak, taslak istemek', bin: 2, beat: 3 },
+        { icon: 'check', name: 'Metnimi kontrol ettirmek', bin: 2, beat: 3 },
+      ],
+      beats: [
+        { tr: 'Hangi yazı aracını seçelim?', en: 'Which writing tool should we choose?',
+          note: 'Farklı yazı araçları var. Yapacağımız işe göre en uygun olanı seçeriz.' },
+        { tr: 'Masaüstü program internetsiz de çalışır', en: 'A desktop program works without the internet',
+          note: 'Bilgisayara kurulu masaüstü programlar internet olmadan da çalışır. Ödev ya da dilekçe yazıp yazdırabiliriz.' },
+        { tr: 'Çevrim içi araçla birlikte yazabiliriz', en: 'With an online tool we can write together',
+          note: 'Çevrim içi araçlarda arkadaşlarımızla aynı belge üzerinde çalışabilir, belgeye her cihazdan ulaşabiliriz.' },
+        { tr: 'Yapay zekâ fikir verir, metni kontrol eder', en: 'AI gives ideas and checks our text',
+          note: 'Yapay zekâ destekli araçlar fikir verebilir ya da metnimizi kontrol edebilir. Ama yazının sahibi biz olmalıyız.' },
+      ] },
+    { type: 'app', app: 'word', title: 'Kelime İşlemci', name: 'Arayüzü kullanalım', en: 'Using the interface', desc: 'Yazma, başlık biçimi, hizalama, yazım denetimi, resim ve kaydetme.', out: 'c',
+      data: { title: 'Okul Bahçemiz', lines: ['Okul bahçemiz geniş ve ağaçlıdır.', 'Teneffüste burda oyun oynarız.', 'Bahçeyi temiz tutmak hepimizin görevi.'], typo: { line: 1, x: 170, from: 'burda', to: 'burada' }, file: 'okul-bahcemiz.docx', caption: 'Resim 1: Okul bahçemiz' },
+      tools: [{ id: 'type', label: 'Yaz' }, { id: 'heading', label: 'Başlık' }, { id: 'align', label: 'Ortala' }, { id: 'bold', label: 'Kalın' }, { id: 'spell', label: 'Yazım denetimi' }, { id: 'image', label: 'Resim' }, { id: 'save', label: 'Kaydet' }],
+      beats: [
+        { tr: 'Önce metni yazalım', en: 'First, let\'s type the text', tool: 'type', hint: 'Klavyeyle yazarız',
+          note: 'Önce başlığı ve metni klavyeyle yazarız.' },
+        { tr: 'Başlığı büyüt ve ortala', en: 'Make the title bigger and centre it', tools: ['heading', 'align'], hint: 'Başlık + Ortala',
+          note: 'Başlığı büyütür ve sayfanın ortasına alırız. Böylece hemen göze çarpar.' },
+        { tr: 'Kırmızı çizgi: yazım hatası var!', en: 'A red line means a spelling mistake!', tools: ['bold', 'spell'], hint: '"burda" → "burada"',
+          note: 'Önemli cümleyi kalın yaparız. Kırmızı dalgalı çizgi bir yazım hatasını gösterir: "burda" değil, "burada". Yazım denetimiyle düzeltiriz.' },
+        { tr: 'Resim ekle ve belgeyi kaydet', en: 'Add a picture and save the document', tools: ['image', 'save'], hint: 'okul-bahcemiz.docx',
+          note: 'Bir resim ve kısa bir açıklama ekleriz. Sonra belgeyi anlamlı bir adla kaydederiz.' },
+      ] },
+    { type: 'judge', name: 'Verimli ve doğru mu?', en: 'Efficient and fair?', desc: 'Yazı araçlarının kullanımı verimlilik ve etik açısından değerlendirilir.', out: 'ç', labels: { ok: 'verimli', no: 'yanlış' },
+      beats: [
+        { tr: 'Yapay zekânın yazdığını kendi ödevim diye vermek', en: 'Handing in AI writing as my own homework',
+          note: 'Yapay zekânın yazdığı metni kendi ödevimiz gibi teslim etmek dürüst değildir. Önce kendimiz yazmalıyız.',
+          row: { icon: 'ai', text: 'Yapay zekânın yazdığı metni kendi ödevim diye teslim ediyorum', ok: false, why: 'Önce kendim yazmalıyım' } },
+        { tr: 'Grup ödevini çevrim içi belgede yazmak', en: 'Writing group homework in an online document',
+          note: 'Grup ödevini çevrim içi bir belgede yazarsak herkes aynı anda katkı verir. Verimli.',
+          row: { icon: 'group', text: 'Grup ödevini çevrim içi ortak belgede yazıyoruz', ok: true, why: 'Herkes aynı anda katkı verir' } },
+        { tr: 'Yazım denetimiyle hataları düzeltmek', en: 'Fixing mistakes with the spell checker',
+          note: 'Yazım denetimi hataları bulmamıza yardım eder. Türkçeyi doğru yazmak hepimizin görevidir. Verimli.',
+          row: { icon: 'check', text: 'Belgemi yazım denetimiyle kontrol ediyorum', ok: true, why: 'Türkçeyi doğru yazarım' } },
+      ] },
+    { type: 'summary',
+      lines: [
+        { icon: 'wordApp', c: 'kobalt', text: 'Kelime işlemci yazmayı kolaylaştırır' },
+        { icon: 'cloud', c: 'turkuaz', text: 'İşe uygun aracı seç' },
+        { icon: 'ai', c: 'mor', text: 'Yapay zekâ yardımcıdır, yazar sensin' },
+      ],
+      beats: [
+        { tr: 'Aklında kalsın: işe uygun yazı aracını seç', en: 'Remember: choose the right writing tool',
+          note: 'Aklında kalsın: kelime işlemci yazmayı, düzeltmeyi ve paylaşmayı kolaylaştırır. İşine uygun aracı seç.' },
+        { tr: 'Yazının sahibi sen ol!', en: 'Be the author of your writing!',
+          note: 'Araçlar sana yardım eder, ama yazının sahibi her zaman sen ol!' },
+      ] },
+  ],
+});
